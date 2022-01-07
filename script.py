@@ -58,10 +58,12 @@ if __name__ == '__main__':
     b.get_latest_price('EUR')
     print("1 BTC = " + str(round(b.get_latest_price('EUR'), 2)) + "€")
     bitcoineur = b.get_latest_price('EUR')
+    cryptocompare.cryptocompare._set_api_key_parameter("")
     dictio1 = cryptocompare.get_price(["BTC", "ETH"], ["EUR", "USD"])
     etheur = str(list(dictio1["ETH"].items())[0]).split(",")[1].strip(")")
     print("1 ETH = " + str(etheur) + "€")
     ethbin = round(float(etheur) / float(bitcoineur), 2)
+    print("Balance ETH/BITCOIN:\t", ethbin)
 
 
     #main(bitcoineur)
@@ -90,4 +92,4 @@ if __name__ == '__main__':
             ])
         )
     )
-    #fig.show()
+    fig.show()
